@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock-Paper-Scissors</title>
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="title">
+        <h1>Rock, Paper, Scissors!</h1>
+    </div>
+    <div class="score-container">
+        <p>Human Score</p>
+        <div class="h-score"></div>
+        <div class="c-score"></div>
+        <p>Computer Score</p>
+    </div>
+    <div class="selection-container">
+        <p>Human Selection</p>
+        <div class="h-selection"></div>
+        <div class="c-selection"></div>
+        <p>Computer Selection</p>
+    </div>
+    <div class="options">
+        <div class="rock">
+            <span>🪨</span>
+            <button id="btn">ROCK</button>
+        </div>
+        <div class="paper">
+            <span>📄</span>
+            <button id="btn">PAPER</button>
+        </div>
+        <div class="scissors">
+            <span>✂️</span>
+            <button id="btn">SCISSORS</button>
+        </div>
+    </div>
+    <div class="options">
+        <div class="reset">
+            <span>🔄</span>
+            <button id="reset" onclick="restartGame()">RESET</button>
+        </div>
+    </div>
+</body>
+
+</html>
