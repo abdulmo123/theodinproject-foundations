@@ -1,5 +1,4 @@
 function createGrid() {
-    // todo: add later prompt to read from input
     const gridSize = Number(prompt("Enter a number up to 100 to generate grid"));
 
     if (gridSize <= 100) {
