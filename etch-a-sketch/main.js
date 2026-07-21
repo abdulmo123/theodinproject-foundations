@@ -1,8 +1,9 @@
-function createGrid() {
-    const gridSize = Number(prompt("Enter a number up to 100 to generate grid"));
+var gridSize = 0;
 
+function startSketch(gridSize) {
     if (gridSize <= 100) {
-        const grid = document.querySelector(".container");
+        const grid = document.querySelector("#grid");
+        grid.classList.toggle('hidden');
         grid.style.display = 'grid';
         grid.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
         grid.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
@@ -27,7 +28,6 @@ function createGrid() {
 
                 cell.addEventListener('mouseover', () => {
                     cell.style.background = 'red'
-                    console.log('click!')
                 });
 
                 grid.appendChild(cell);
@@ -36,4 +36,40 @@ function createGrid() {
     }
 }
 
-createGrid()
+function setGridSize() {
+    // hide grid until grid size is set
+    const grid = document.querySelector("#grid");
+    grid.classList.toggle('hidden');
+
+    const startBtn = document.getElementById("start");
+    startBtn.addEventListener('click', (e) => {
+        // toggle hidden on modal -- it will display it
+        const modal = document.getElementById('grid-size');
+        modal.classList.toggle('hidden');
+
+        // event listener for input so we can pass that into closeModal when we enter a number
+        const input = document.querySelector('#size');
+        input.addEventListener('input', (event) => {
+            gridSize = event.target.value;
+        });
+    });
+}
+
+function resetGrid() {
+    document.querySelectorAll('.box').forEach(el => el.style.background = 'lightgray');
+}
+
+function closeModal() {
+
+    // toggle modal to hidden
+    const modal = document.getElementById('grid-size');
+    modal.classList.toggle('hidden');
+
+    // remove all the dynamically created cells in the grid
+    document.querySelectorAll('.box').forEach(el => el.remove());
+
+    // call start sketch to begin sketching
+    startSketch(gridSize);
+}
+
+setGridSize()
