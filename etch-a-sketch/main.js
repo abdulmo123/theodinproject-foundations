@@ -56,7 +56,8 @@ function setGridSize() {
 }
 
 function resetGrid() {
-    document.querySelectorAll('.box').forEach(el => el.style.background = 'lightgray');
+    // reset each cell back to original color
+    document.querySelectorAll('.box').forEach(cell => cell.style.background = 'lightgray');
 }
 
 function closeModal() {
@@ -66,7 +67,7 @@ function closeModal() {
     modal.classList.toggle('hidden');
 
     // remove all the dynamically created cells in the grid
-    document.querySelectorAll('.box').forEach(el => el.remove());
+    document.querySelectorAll('.box').forEach(cell => cell.remove());
 
     // call start sketch to begin sketching
     startSketch(gridSize);
